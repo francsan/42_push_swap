@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:59:09 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/25 23:06:38 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/27 20:04:17 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,21 @@ void	r_rotate(t_node **head, char stack)
 		write(1, "rra\n", 4);
 	if (stack == 'b')
 		write(1, "rrb\n", 4);
+}
+
+void	push(t_node **t_from, t_node **t_to, t_node **h_to, char stack)
+{
+	t_node	*temp;
+
+	if (!(*t_to))
+		init(t_to, h_to, (*t_from)->n);
+	else
+		add_node_tail(t_to, (*t_from)->n);
+	temp = (*t_from)->next;
+	remove_node(*t_from);
+	*t_from = temp;
+	if (stack == 'a')
+		write(1, "pa\n", 3);
+	if (stack == 'b')
+		write(1, "pb\n", 3);
 }

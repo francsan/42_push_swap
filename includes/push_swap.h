@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/25 23:06:52 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/27 20:07:04 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,22 @@ typedef struct t_node {
 int		check_num(t_node **head, int n);
 void	fill_stack_a(t_node **tail, t_node **head, char **argv);
 
-// operations_1.c
+// actions_1.c
 void	swap(t_node **tail, char stack);
 void	rotate(t_node **tail, char stack);
 void	r_rotate(t_node **head, char stack);
+void	push(t_node **t_from, t_node **t_to, t_node **h_to, char stack);
 
-// operations_2.c
+// actions_2.c
 void	swap_both(t_node **tail_a, t_node **tail_b);
 void	rotate_both(t_node **tail_a, t_node **tail_b);
 void	r_rotate_both(t_node **head_a, t_node **head_b);
-void	push(t_node **tail_a, t_node **tail_b, char stack);
+
+// sorting.c
+void	sort_2(t_node **tail);
+void	sort_3(t_node **tail, t_node **head);
+int		check_order(t_node **tail);
+void	sorting(t_node **tail_a, t_node **head_a, int argc);
 
 // lists_utils.c
 void	free_list(t_node **tail, t_node **head);

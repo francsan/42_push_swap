@@ -9,8 +9,8 @@ HEADER_SRCS	=	push_swap.h
 HEADER_DIR	=	includes/
 HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
 
-MPATH_SRCS	=	main.c fill_stack_a.c operations_1.c operations_2.c\
-				lists_utils.c errors.c
+MPATH_SRCS	=	main.c fill_stack_a.c actions_1.c actions_2.c\
+				sorting.c lists_utils.c errors.c
 MPATH_DIR	=	mandatory/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)
