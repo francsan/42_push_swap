@@ -6,17 +6,17 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:14:02 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/25 23:03:52 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/28 02:40:27 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_num(t_node **head, int n)
+int	check_num(t_data *d, int n)
 {
 	t_node	*curr;
 
-	curr = (*head)->prev;
+	curr = d->head_a->prev;
 	while (curr != NULL)
 	{
 		if (n == curr->n)
@@ -26,7 +26,7 @@ int	check_num(t_node **head, int n)
 	return (0);
 }
 
-void	fill_stack_a(t_node **tail, t_node **head, char **argv)
+void	fill_stack_a(t_data *d, char **argv)
 {
 	int	i;
 	int	j;
@@ -44,11 +44,11 @@ void	fill_stack_a(t_node **tail, t_node **head, char **argv)
 		}
 	}
 	i = 1;
-	init(tail, head, ft_atoi(argv[i]));
+	init(&(d->tail_a), &(d->head_a), ft_atoi(argv[i]));
 	while (argv[++i])
 	{
-		add_node_head(head, ft_atoi(argv[i]));
-		if (check_num(head, ft_atoi(argv[i])))
+		add_node_head(&(d->head_a), ft_atoi(argv[i]));
+		if (check_num(d, ft_atoi(argv[i])))
 			error_msg(ERR);
 	}
 }

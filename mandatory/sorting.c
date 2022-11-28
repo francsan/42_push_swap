@@ -6,40 +6,40 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:47:56 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/27 20:14:40 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/28 17:11:55 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_2(t_node **tail)
+void	sort_2(t_data *d)
 {
-	if ((*tail)->n > (*tail)->next->n)
-		swap(tail, 'a');
+	if ((d->tail_a)->n > (d->tail_a)->next->n)
+		swap(&(d->tail_a), 'a');
 }
 
-void	sort_3(t_node **tail, t_node **head)
+void	sort_3(t_data *d)
 {
 	t_node	*curr;
 	int		i;
 
-	curr = (*tail);
+	curr = (d->tail_a);
 	i = 1;
 	while (i < 3)
 	{
 		if (i == 1 && curr->n > curr->next->n && curr->n > curr->next->next->n)
-			rotate(tail, 'a');
+			rotate(&(d->tail_a), 'a');
 		if (i == 1 && curr->n < curr->next->n && curr->n > curr->next->next->n)
-			r_rotate(head, 'a');
+			r_rotate(&(d->head_a), 'a');
 		if (curr->n > curr->next->n)
 		{
 			if (i == 1)
-				swap(tail, 'a');
+				swap(&(d->tail_a), 'a');
 			if (i == 2)
 			{
-				rotate(tail, 'a');
-				swap(tail, 'a');
-				r_rotate(head, 'a');
+				rotate(&(d->tail_a), 'a');
+				swap(&(d->tail_a), 'a');
+				r_rotate(&(d->head_a), 'a');
 			}
 		}
 		curr = curr->next;
@@ -47,11 +47,11 @@ void	sort_3(t_node **tail, t_node **head)
 	}
 }
 
-int	check_order(t_node **tail)
+int	check_order(t_data *d)
 {
 	t_node	*curr;
 
-	curr = *tail;
+	curr = d->tail_a;
 	while (curr->next != NULL)
 	{
 		if (!(curr->n < curr->next->n))
@@ -61,19 +61,18 @@ int	check_order(t_node **tail)
 	return (1);
 }
 
-void	sorting(t_node **tail_a, t_node **head_a, int argc)
+void	sorting(t_data *d, int argc)
 {
-	t_node	*tail_b;
-	t_node	*head_b;
-
-	tail_b = NULL;
-	head_b = NULL;
-	while (!check_order(tail_a))
+	d->tail_b = NULL;
+	d->head_b = NULL;
+	if (!check_order(d))
 	{
 		if (argc == 3)
-			sort_2(tail_a);
+			sort_2(d);
 		if (argc == 4)
-			sort_3(tail_a, head_a);
+			sort_3(d);
+		if (argc > 4)
+			radix_sort(d, argc);
 	}
-	free_list(&tail_b, &head_b);
+	free_list(&(d->tail_b), &(d->head_b));
 }
