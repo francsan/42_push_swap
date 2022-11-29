@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:59:42 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/25 23:04:02 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/29 01:27:52 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	remove_node(t_node *node)
 	free(node);
 }
 
-void	add_node_tail(t_node **tail, int n)
+void	add_node_tail(t_node **tail, int n, int order)
 {
 	t_node	*new_node;
 
@@ -46,13 +46,14 @@ void	add_node_tail(t_node **tail, int n)
 	if (!new_node)
 		error_msg(ERR);
 	new_node->n = n;
+	new_node->order = order;
 	new_node->next = *tail;
 	new_node->prev = NULL;
 	(*tail)->prev = new_node;
 	*tail = new_node;
 }
 
-void	add_node_head(t_node **head, int n)
+void	add_node_head(t_node **head, int n, int order)
 {
 	t_node	*new_node;
 
@@ -60,13 +61,14 @@ void	add_node_head(t_node **head, int n)
 	if (!new_node)
 		error_msg(ERR);
 	new_node->n = n;
+	new_node->order = order;
 	new_node->next = NULL;
 	new_node->prev = *head;
 	(*head)->next = new_node;
 	*head = new_node;
 }
 
-void	init(t_node **tail, t_node **head, int n)
+void	init_list(t_node **tail, t_node **head, int n, int order)
 {
 	t_node	*new_node;
 
@@ -74,6 +76,7 @@ void	init(t_node **tail, t_node **head, int n)
 	if (!new_node)
 		error_msg(ERR);
 	new_node->n = n;
+	new_node->order = order;
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	*tail = new_node;

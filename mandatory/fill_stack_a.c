@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:14:02 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/28 02:40:27 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/29 01:29:03 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	fill_stack_a(t_data *d, char **argv)
 		}
 	}
 	i = 1;
-	init(&(d->tail_a), &(d->head_a), ft_atoi(argv[i]));
+	init_list(&(d->tail_a), &(d->head_a), ft_atoi(argv[i]), 0);
 	while (argv[++i])
 	{
-		add_node_head(&(d->head_a), ft_atoi(argv[i]));
+		add_node_head(&(d->head_a), ft_atoi(argv[i]), 0);
 		if (check_num(d, ft_atoi(argv[i])))
 			error_msg(ERR);
 	}

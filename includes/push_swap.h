@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/28 03:47:12 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/29 02:17:46 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,17 @@
 // double linked list
 typedef struct t_node {
 	int				n;
+	int				order;
 	struct t_node	*next;
 	struct t_node	*prev;
 }	t_node;
 
 // data struct
 typedef struct t_data {
+	int				size;
 	int				size_a;
 	int				size_b;
+	int				min;
 	int				max;
 	int				place;
 	struct t_node	*tail_a;
@@ -70,16 +73,16 @@ int		check_order(t_data *d);
 void	sorting(t_data *d, int argc);
 
 // radix.c
-void	get_max(t_data *d);
-void	sort_all(t_data *d);
-void	radix_sort(t_data *d, int argc);
+void	get_limits(t_data *d);
+void	get_order(t_data *d);
+void	radix_sort(t_data *d);
 
 // lists_utils.c
 void	free_list(t_node **tail, t_node **head);
 void	remove_node(t_node *node);
-void	add_node_tail(t_node **tail, int n);
-void	add_node_head(t_node **head, int n);
-void	init(t_node **tail, t_node **head, int n);
+void	add_node_tail(t_node **tail, int n, int order);
+void	add_node_head(t_node **head, int n, int order);
+void	init_list(t_node **tail, t_node **head, int n, int order);
 
 // errors.c
 void	error_msg(char *error);

@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:47:56 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/28 17:11:55 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/29 00:11:22 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	sorting(t_data *d, int argc)
 		if (argc == 4)
 			sort_3(d);
 		if (argc > 4)
-			radix_sort(d, argc);
+			radix_sort(d);
 	}
 	free_list(&(d->tail_b), &(d->head_b));
 }
