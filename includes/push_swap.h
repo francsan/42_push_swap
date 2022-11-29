@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/29 02:17:46 by francisco        ###   ########.fr       */
+/*   Updated: 2022/11/29 02:30:34 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct t_data {
 
 /* push_swap functions */
 
-// fill_stack_a.c
+// fill_stack.c
 int		check_num(t_data *d, int n);
 void	fill_stack_a(t_data *d, char **argv);
 
