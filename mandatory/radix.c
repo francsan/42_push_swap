@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 20:21:42 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/29 02:22:42 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/01 23:44:59 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,35 @@ void	get_limits(t_data *d)
 	}
 }
 
+void	get_next_num(t_data *d)
+{
+	t_node	*curr;
+	int		next;
+
+	curr = d->tail_a;
+	next = d->max;
+	while (curr != NULL)
+	{
+		if (curr->n < next && curr->n > d->num)
+			next = curr->n;
+		curr = curr->next;
+	}
+	d->num = next;
+}
+
 void	get_order(t_data *d)
 {
 	t_node	*curr;
-	int		n;
 	int		order;
 
-	curr = d->tail_a;
-	n = d->min;
+	d->num = d->min;
 	order = 0;
-	while (n <= d->max)
+	while (d->num <= d->max)
 	{
+		curr = d->tail_a;
 		while (curr != NULL)
 		{
-			if (curr->n == n)
+			if (curr->n == d->num)
 			{
 				curr->order = order;
 				order++;
@@ -55,33 +70,91 @@ void	get_order(t_data *d)
 			}
 			curr = curr->next;
 		}
-		n++;
-		curr = d->tail_a;
+		if (d->num == d->max)
+			break ;
+		get_next_num(d);
 	}
 	d->size = order;
 	d->size_a = d->size;
 	d->size_b = 0;
 }
 
+void	sort_all(t_data *d)
+{
+	int	digit;
+	int	temp;
+	int	i;
+
+	digit = 0;
+	i = 0;
+	if (d->size_a != 0)
+	{
+		while (digit <= 9)
+		{
+			while (i < d->size_a)
+			{
+				temp = ((d->tail_a)->order / d->place);
+				temp = (temp % (d->place * 10));
+				if (digit == temp)
+				{
+					push(&(d->tail_a), &(d->tail_b), &(d->head_b), 'b');
+					if ((d->tail_b)->next)
+						rotate(&(d->tail_b), 'b');
+					d->size_a--;
+					d->size_b++;
+				}
+				else
+				{
+					rotate(&(d->tail_a), 'a');
+					i++;
+				}
+			}
+			digit++;
+			i = 0;
+		}
+	}
+	else if (d->size_b != 0)
+	{
+		while (digit <= 9)
+		{
+			while (i < d->size_b)
+			{
+				temp = ((d->tail_b)->order / d->place);
+				temp = (temp % (d->place * 10));
+				if (digit == temp)
+				{
+					push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
+					if ((d->tail_a)->next)
+						rotate(&(d->tail_a), 'a');
+					d->size_a++;
+					d->size_b--;
+				}
+				else
+				{
+					rotate(&(d->tail_b), 'b');
+					i++;
+				}
+			}
+			digit++;
+			i = 0;
+		}
+	}
+}
+
 void	radix_sort(t_data *d)
 {
-	int	order;
-	int	n_order;
-
 	get_limits(d);
 	get_order(d);
-	order = 0;
-	while (order < d->size - 1)
+	d->place = 1;
+	while ((d->size - 1) / d->place > 0)
 	{
-		n_order = (d->tail_a)->order;
-		if (order == n_order)
-		{
-			push(&(d->tail_a), &(d->tail_b), &(d->head_b), 'b');
-			order++;
-		}
-		else
+		sort_all(d);
+		d->place *= 10;
+	}
+	while (d->tail_b != NULL)
+	{
+		push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
+		if ((d->tail_a)->next)
 			rotate(&(d->tail_a), 'a');
 	}
-	while (d->tail_b)
-		push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
 }
