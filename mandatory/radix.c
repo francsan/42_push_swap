@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 20:21:42 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/01 23:44:59 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/02 11:21:33 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	sort_all(t_data *d)
 			while (i < d->size_a)
 			{
 				temp = ((d->tail_a)->order / d->place);
-				temp = (temp % (d->place * 10));
+				temp %= 10;
 				if (digit == temp)
 				{
 					push(&(d->tail_a), &(d->tail_b), &(d->head_b), 'b');
@@ -120,7 +120,7 @@ void	sort_all(t_data *d)
 			while (i < d->size_b)
 			{
 				temp = ((d->tail_b)->order / d->place);
-				temp = (temp % (d->place * 10));
+				temp %= 10;
 				if (digit == temp)
 				{
 					push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
