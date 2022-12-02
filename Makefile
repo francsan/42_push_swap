@@ -10,7 +10,8 @@ HEADER_DIR	=	includes/
 HEADER		=	$(addprefix $(HEADER_DIR), $(HEADER_SRCS))
 
 MPATH_SRCS	=	main.c fill_stack.c actions_1.c actions_2.c\
-				sorting.c radix.c lists_utils.c errors.c
+				sorting.c radix.c lists_utils.c errors.c\
+				radix_utils.c
 MPATH_DIR	=	mandatory/
 MPATH		=	$(addprefix $(MPATH_DIR), $(MPATH_SRCS))
 OBJ_M		=	$(MPATH:.c=.o)

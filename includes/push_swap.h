@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/01 20:35:35 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/02 11:54:45 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ typedef struct t_data {
 	struct t_node	*head_b;
 }	t_data;
 
+// sorting struct
+typedef struct t_sorting {
+	int	digit;
+	int	temp;
+	int	i;
+}	t_sorting;
+
 /* errors */
 
 # define ERR "Error\n"
@@ -74,11 +81,14 @@ int		check_order(t_data *d);
 void	sorting(t_data *d, int argc);
 
 // radix.c
+void	sort_a_to_b(t_data *d, t_sorting *s);
+void	sort_b_to_a(t_data *d, t_sorting *s);
+void	radix_sort(t_data *d);
+
+// radix_utils.c
 void	get_limits(t_data *d);
 void	get_next_num(t_data *d);
 void	get_order(t_data *d);
-void	sort_all(t_data *d);
-void	radix_sort(t_data *d);
 
 // lists_utils.c
 void	free_list(t_node **tail, t_node **head);
