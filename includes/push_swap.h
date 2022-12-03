@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/02 11:54:45 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/03 16:39:05 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct t_sorting {
 
 // fill_stack.c
 int		check_num(t_data *d, int n);
-void	fill_stack_a(t_data *d, char **argv);
+void	fill_stack(t_data *d, char **argv);
 
 // actions_1.c
 void	swap(t_node **tail, char stack);

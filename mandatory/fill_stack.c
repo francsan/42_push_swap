@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_stack_a.c                                     :+:      :+:    :+:   */
+/*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:14:02 by francisco         #+#    #+#             */
-/*   Updated: 2022/11/29 01:29:03 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/03 16:39:12 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_num(t_data *d, int n)
 	return (0);
 }
 
-void	fill_stack_a(t_data *d, char **argv)
+void	fill_stack(t_data *d, char **argv)
 {
 	int	i;
 	int	j;
