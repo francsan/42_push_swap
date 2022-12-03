@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 20:21:42 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/02 11:54:34 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/03 18:32:56 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	sort_a_to_b(t_data *d, t_sorting *s)
 			if (s->digit == s->temp)
 			{
 				push(&(d->tail_a), &(d->tail_b), &(d->head_b), 'b');
-				if ((d->tail_b)->next)
-					rotate(&(d->tail_b), 'b');
 				d->size_a--;
 				d->size_b++;
 			}
@@ -43,9 +41,9 @@ void	sort_a_to_b(t_data *d, t_sorting *s)
 
 void	sort_b_to_a(t_data *d, t_sorting *s)
 {
-	s->digit = 0;
+	s->digit = 9;
 	s->i = 0;
-	while (s->digit <= 9)
+	while (s->digit >= 0)
 	{
 		while (s->i < d->size_b)
 		{
@@ -54,8 +52,6 @@ void	sort_b_to_a(t_data *d, t_sorting *s)
 			if (s->digit == s->temp)
 			{
 				push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
-				if ((d->tail_a)->next)
-					rotate(&(d->tail_a), 'a');
 				d->size_a++;
 				d->size_b--;
 			}
@@ -65,7 +61,7 @@ void	sort_b_to_a(t_data *d, t_sorting *s)
 				s->i++;
 			}
 		}
-		s->digit++;
+		s->digit--;
 		s->i = 0;
 	}
 }
@@ -87,10 +83,6 @@ void	radix_sort(t_data *d)
 		free(s);
 		d->place *= 10;
 	}
-	while (d->tail_b != NULL)
-	{
+	while (d->tail_b)
 		push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
-		if ((d->tail_a)->next)
-			rotate(&(d->tail_a), 'a');
-	}
 }
