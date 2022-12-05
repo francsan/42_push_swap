@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 20:21:42 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/03 18:32:56 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/05 18:17:45 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	radix_sort(t_data *d)
 	get_limits(d);
 	get_order(d);
 	d->place = 1;
-	while ((d->size - 1) / d->place > 0)
+	while (((d->size - 1) / d->place) > 0)
 	{
 		s = ft_calloc(sizeof(t_sorting), 1);
 		if (d->size_a != 0)

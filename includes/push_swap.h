@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/03 16:39:05 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/05 17:20:03 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	rotate_both(t_node **tail_a, t_node **tail_b);
 void	r_rotate_both(t_node **head_a, t_node **head_b);
 
 // sorting.c
-void	sort_2(t_data *d);
+void	sort_2(t_data *d, char stack);
 void	sort_3(t_data *d);
 int		check_order(t_data *d);
 void	sorting(t_data *d, int argc);

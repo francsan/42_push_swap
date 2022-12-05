@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:14:59 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/03 18:32:05 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/05 18:19:17 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int	main(int argc, char **argv)
 	sorting(d, argc);
 	free_list(&(d->tail_a), &(d->head_a));
 	free(d);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:14:02 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/03 16:39:12 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/05 17:53:54 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_num(t_data *d, int n)
 {
 	t_node	*curr;
 
-	curr = d->head_a->prev;
+	curr = (d->head_a)->prev;
 	while (curr != NULL)
 	{
 		if (n == curr->n)
@@ -39,7 +39,7 @@ void	fill_stack(t_data *d, char **argv)
 		{
 			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
 				j++;
-			if (argv[i][j] < '0' || argv[i][j] > '9')
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				error_msg(ERR);
 		}
 	}
