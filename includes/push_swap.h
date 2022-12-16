@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: francsan <francsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/05 17:20:03 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/16 01:34:37 by francsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct t_data {
 	int				min;
 	int				max;
 	int				num;
+	int				bit_max;
 	int				place;
 	struct t_node	*tail_a;
 	struct t_node	*head_a;
@@ -77,15 +78,15 @@ void	r_rotate_both(t_node **head_a, t_node **head_b);
 // sorting.c
 void	sort_2(t_data *d, char stack);
 void	sort_3(t_data *d);
-int		check_order(t_data *d);
 void	sorting(t_data *d, int argc);
 
 // radix.c
-void	sort_a_to_b(t_data *d, t_sorting *s);
-void	sort_b_to_a(t_data *d, t_sorting *s);
 void	radix_sort(t_data *d);
+void	get_bit_max(t_data *d);
+void	sort_all(t_data *d);
 
 // radix_utils.c
+int		check_order(t_data *d);
 void	get_limits(t_data *d);
 void	get_next_num(t_data *d);
 void	get_order(t_data *d);

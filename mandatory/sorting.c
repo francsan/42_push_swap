@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: francsan <francsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:47:56 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/05 17:49:33 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/16 01:34:22 by francsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,6 @@ void	sort_5(t_data *d)
 		push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
 }
 
-int	check_order(t_data *d)
-{
-	t_node	*curr;
-
-	curr = d->tail_a;
-	while (curr->next != NULL)
-	{
-		if (!(curr->n < curr->next->n))
-			return (0);
-		curr = curr->next;
-	}
-	return (1);
-}
-
 void	sorting(t_data *d, int argc)
 {
 	if (!check_order(d))
@@ -120,7 +106,7 @@ void	sorting(t_data *d, int argc)
 		else if (argc == 6)
 			sort_5(d);
 		else if (argc > 6)
-			radix_sort(d);
+			sort_all(d);
 	}
 	if (d->tail_b)
 		free_list(&(d->tail_b), &(d->head_b));

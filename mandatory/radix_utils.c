@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: francsan <francsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 11:49:49 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/02 11:50:05 by francisco        ###   ########.fr       */
+/*   Updated: 2022/12/16 01:34:25 by francsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	check_order(t_data *d)
+{
+	t_node	*curr;
+
+	curr = d->tail_a;
+	while (curr->next != NULL)
+	{
+		if (!(curr->n < curr->next->n))
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
+}
 
 void	get_limits(t_data *d)
 {
