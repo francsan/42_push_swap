@@ -6,7 +6,7 @@
 /*   By: francsan <francsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:47:56 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/16 01:34:22 by francsan         ###   ########.fr       */
+/*   Updated: 2022/12/16 19:55:59 by francsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	sort_4(t_data *d)
 		else
 			rotate(&(d->tail_a), 'a');
 	}
-	sort_3(d);
+	if (!check_order(d))
+		sort_3(d);
 	push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
 }
 
@@ -87,7 +88,8 @@ void	sort_5(t_data *d)
 		else
 			rotate(&(d->tail_a), 'a');
 	}
-	sort_3(d);
+	if (!check_order(d))
+		sort_3(d);
 	sort_2(d, 'b');
 	while (d->tail_b)
 		push(&(d->tail_b), &(d->tail_a), &(d->head_a), 'a');
