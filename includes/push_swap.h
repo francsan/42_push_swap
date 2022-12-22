@@ -6,7 +6,7 @@
 /*   By: francsan <francsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/16 01:34:37 by francsan         ###   ########.fr       */
+/*   Updated: 2022/12/22 15:48:50 by francsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <unistd.h>
 // for malloc, free, exit
 # include <stdlib.h>
-// for TESTING
-# include <stdio.h>
-# include <string.h>
 
 /* structs */
 
@@ -46,13 +43,6 @@ typedef struct t_data {
 	struct t_node	*tail_b;
 	struct t_node	*head_b;
 }	t_data;
-
-// sorting struct
-typedef struct t_sorting {
-	int	digit;
-	int	temp;
-	int	i;
-}	t_sorting;
 
 /* errors */
 
