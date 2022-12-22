@@ -6,7 +6,7 @@
 /*   By: francsan <francsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:51:36 by francisco         #+#    #+#             */
-/*   Updated: 2022/12/22 15:48:50 by francsan         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:06:22 by francsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct t_node {
 
 // data struct
 typedef struct t_data {
+	int				i;
 	int				size;
 	int				size_a;
 	int				size_b;
@@ -88,7 +89,8 @@ void	add_node_tail(t_node **tail, int n, int order);
 void	add_node_head(t_node **head, int n, int order);
 void	init_list(t_node **tail, t_node **head, int n, int order);
 
-// errors.c
+// utils.c
+void	check_valid(char **argv);
 void	error_msg(char *error);
 
 /* libft functions */
